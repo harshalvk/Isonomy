@@ -2,8 +2,7 @@
 
 > A high-throughput distributed ledger & wallet system, built in TypeScript.
 
-**Isonomy** (from Greek *isonomia*, "equality under law") is a permissioned distributed
-ledger designed for high transaction throughput, with a first-class wallet layer for
+**Isonomy** is a permissioned distributed ledger designed for high transaction throughput, with a first-class wallet layer for
 key management, signing, and balance tracking.
 
 > ⚠️ **Status: early development.** This README is a temporary scaffold and will be
