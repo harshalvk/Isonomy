@@ -43,7 +43,7 @@ export function deriveAddress(publicKey: PublicKeyHex): Address {
   return asAddress(`${ADDRESS_PREFIX}${bytesToHex(truncated)}`);
 }
 
-// convenicne wrapper: generates a keypari and derives its address in
+// convenicne wrapper: generates a keyPair and derives its address in
 // one call, producing a ready-to-use WalletAccount
 export function createWalletAccount(): WalletAccount {
   const keyPair = generateKeyPair();
