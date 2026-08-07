@@ -75,32 +75,38 @@ docker compose up --build
 ```
 isonomy/
 ├── src/
-│   ├── ledger/        # block, chain, mempool logic
-│   ├── wallet/         # keypair generation, signing, address derivation
-│   ├── network/         # P2P gossip, peer discovery
-│   ├── consensus/       # leader election, voting, finality
-│   ├── api/             # REST layer
-│   └── index.ts
-├── test/
-├── .husky/
-├── docker-compose.yml
-├── Dockerfile.dev
-├── eslint.config.js
-├── tsconfig.json
-└── package.json
+│   ├── core/
+│   │   ├── types.ts
+│   │   └── serialize.ts
+│   ├── wallet/
+│   │   ├── types.ts
+│   │   └── crypto.ts
+│   └── ledger/
+│       ├── transaction.ts
+│       ├── block.ts
+│       ├── build-transaction.ts
+│       └── validate-transaction.ts
+└── test/
+    ├── core/
+    │   └── serialize.test.ts
+    ├── wallet/
+    │   └── crypto.test.ts
+    └── ledger/
+        ├── build-transaction.test.ts
+        └── validate-transaction.test.ts
 ```
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start dev server with hot reload |
-| `npm run build` | Compile TypeScript to `dist/` |
-| `npm run start` | Run compiled build |
-| `npm run lint` | Lint the codebase |
-| `npm run lint:fix` | Lint and auto-fix |
-| `npm run format` | Format with Prettier |
-| `npm run typecheck` | Type-check without emitting |
+| Command             | Description                      |
+| ------------------- | -------------------------------- |
+| `npm run dev`       | Start dev server with hot reload |
+| `npm run build`     | Compile TypeScript to `dist/`    |
+| `npm run start`     | Run compiled build               |
+| `npm run lint`      | Lint the codebase                |
+| `npm run lint:fix`  | Lint and auto-fix                |
+| `npm run format`    | Format with Prettier             |
+| `npm run typecheck` | Type-check without emitting      |
 
 ## Contributing
 
