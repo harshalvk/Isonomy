@@ -16,7 +16,7 @@ function combine(left: Hash, right: Hash): Hash {
 }
 
 /** computes a merkle root over leaf hashes. odd levels duplicate the last node */
-export function computerMerkleRoot(leaves: readonly Hash[]): Hash {
+export function computeMerkleRoot(leaves: readonly Hash[]): Hash {
   if (leaves.length === 0) {
     return EMPTY_ROOT;
   }
