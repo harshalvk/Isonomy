@@ -1,6 +1,6 @@
 import { validateTransaction, type UtxoLookup } from "@/ledger/validate-transaction";
 import { buildBlock } from "@/ledger/build-block";
-import { computerMerkleRoot } from "@/core/merkle";
+import { computeMerkleRoot } from "@/core/merkle";
 import { asHash } from "@/core/types";
 import type { Block } from "@/ledger/block";
 import type { OutPoint, TransactionOutput, UTXO } from "@/ledger/transaction";
@@ -60,7 +60,7 @@ export class Chain {
       return { accepted: false, reason: "block height is not sequential" };
     }
 
-    const expectedRoot = computerMerkleRoot(block.transactions.map((tx) => tx.id));
+    const expectedRoot = computeMerkleRoot(block.transactions.map((tx) => tx.id));
     if (expectedRoot !== block.header.merkleRoot) {
       return { accepted: false, reason: "merkle root does not match transactions" };
     }
