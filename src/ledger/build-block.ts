@@ -4,7 +4,7 @@ import type { Transaction } from "./transaction";
 import type { Block, BlockHeader } from "./block";
 import { bytesToHex } from "@noble/curves/utils.js";
 import { canonicalBytes } from "@/core/serialize";
-import { computerMerkleRoot } from "./merkle";
+import { computeMerkleRoot } from "@/core/merkle";
 
 export interface BuildBlockParams {
   readonly previousHash: Hash;
@@ -16,7 +16,7 @@ export interface BuildBlockParams {
 /** build a block: computes its merkle root, then hashes the header */
 export function buildBlock(params: BuildBlockParams): Block {
   const timestamp = params.timestamp ?? Date.now();
-  const merkleRoot = computerMerkleRoot(params.transactions.map((tx) => tx.id));
+  const merkleRoot = computeMerkleRoot(params.transactions.map((tx) => tx.id));
 
   const header: BlockHeader = {
     previousHash: params.previousHash,
